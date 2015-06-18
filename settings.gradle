@@ -1,2 +1,2 @@
-rootProject.name = 'featuros'
+rootProject.name = 'featuros-root'
 include 'featuros', 'featuros-plugin'
