@@ -1,2 +1,2 @@
 spring.data:
-    rest.base-uri: api
+    rest.base-path: api
