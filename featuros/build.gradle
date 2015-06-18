@@ -3,7 +3,10 @@ project(':featuros') {
 
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE'
+        compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.2.4.RELEASE'
+        compile 'org.springframework.boot:spring-boot-starter-data-rest:1.2.4.RELEASE'
         compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.6'
+        runtime 'com.h2database:h2:1.4.187'
     }
     
 }

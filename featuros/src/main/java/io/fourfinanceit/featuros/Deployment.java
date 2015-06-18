@@ -1,40 +1,61 @@
 package io.fourfinanceit.featuros;
 
-import java.time.Instant;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.time.Instant;
+
+@Entity
 public class Deployment {
 
-    private String id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String name;
 
+    private String product;
+
+    @Column(name = "group_")
     private String group;
 
     private String version;
 
     private Instant date;
 
+    /**
+     * @deprecated persistence only
+     */
+    @Deprecated
+    private Deployment() {
+    }
+
     @JsonCreator
-    public Deployment(@JsonProperty("id") String id,
-                      @JsonProperty("name") String name,
+    public Deployment(@JsonProperty("name") String name,
+                      @JsonProperty("product") String product,
                       @JsonProperty("group") String group,
                       @JsonProperty("version") String version) {
-        this.id = id;
         this.name = name;
+        this.product = product;
         this.group = group;
         this.version = version;
         this.date = Instant.now();
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getProduct() {
+        return product;
     }
 
     public String getGroup() {
