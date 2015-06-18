@@ -1,5 +1,8 @@
 package io.fourfinanceit.featuros;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +10,7 @@ import javax.persistence.Id;
 import java.time.Instant;
 
 @Entity
-public class Deployment {
+class Notification {
 
     @Id
     @GeneratedValue
@@ -28,15 +31,19 @@ public class Deployment {
      * @deprecated persistence only
      */
     @Deprecated
-    private Deployment() {
+    private Notification() {
     }
 
-    public Deployment(String name, String product, String group, String version, Instant date) {
+    @JsonCreator
+    public Notification(@JsonProperty("name") String name,
+                        @JsonProperty("product") String product,
+                        @JsonProperty("group") String group,
+                        @JsonProperty("version") String version) {
         this.name = name;
         this.product = product;
         this.group = group;
         this.version = version;
-        this.date = date;
+        this.date = Instant.now();
     }
 
     public Long getId() {
