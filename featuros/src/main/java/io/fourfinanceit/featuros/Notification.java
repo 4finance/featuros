@@ -2,6 +2,8 @@ package io.fourfinanceit.featuros;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.Instant;
 
+@JsonRootName("notification")
 @Entity
-class Notification {
+class Notification implements Identifiable<Long> {
 
     @Id
     @GeneratedValue
@@ -46,6 +49,7 @@ class Notification {
         this.date = Instant.now();
     }
 
+    @Override
     public Long getId() {
         return id;
     }
