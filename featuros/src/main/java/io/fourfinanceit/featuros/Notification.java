@@ -1,7 +1,5 @@
 package io.fourfinanceit.featuros;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import org.springframework.hateoas.Identifiable;
 
@@ -30,6 +28,8 @@ class Notification implements Identifiable<Long> {
 
     private Instant date;
 
+    private String address;
+
     /**
      * @deprecated persistence only
      */
@@ -37,16 +37,13 @@ class Notification implements Identifiable<Long> {
     private Notification() {
     }
 
-    @JsonCreator
-    public Notification(@JsonProperty("name") String name,
-                        @JsonProperty("product") String product,
-                        @JsonProperty("group") String group,
-                        @JsonProperty("version") String version) {
+    public Notification(String name, String product, String group, String version, Instant date, String address) {
         this.name = name;
         this.product = product;
         this.group = group;
         this.version = version;
-        this.date = Instant.now();
+        this.date = date;
+        this.address = address;
     }
 
     @Override
@@ -72,5 +69,9 @@ class Notification implements Identifiable<Long> {
 
     public Instant getDate() {
         return date;
+    }
+
+    public String getAddress() {
+        return address;
     }
 }
