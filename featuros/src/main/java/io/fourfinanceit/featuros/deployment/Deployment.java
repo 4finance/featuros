@@ -1,5 +1,6 @@
 package io.fourfinanceit.featuros.deployment;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
 import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.Instant;
 
+@JsonRootName("deployment")
 @Entity
 class Deployment implements Identifiable<Long> {
 
