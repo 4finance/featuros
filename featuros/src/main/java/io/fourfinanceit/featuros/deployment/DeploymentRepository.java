@@ -1,8 +1,8 @@
-package io.fourfinanceit.featuros;
+package io.fourfinanceit.featuros.deployment;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DeploymentRepository extends PagingAndSortingRepository<Deployment, Long> {
+interface DeploymentRepository extends PagingAndSortingRepository<Deployment, Long> {
 }

@@ -1,4 +1,4 @@
-package io.fourfinanceit.featuros;
+package io.fourfinanceit.featuros.deployment;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.time.Instant;
 
 @Entity
-public class Deployment {
+class Deployment {
 
     @Id
     @GeneratedValue

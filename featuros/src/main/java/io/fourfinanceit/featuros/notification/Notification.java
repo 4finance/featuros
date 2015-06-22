@@ -1,4 +1,4 @@
-package io.fourfinanceit.featuros;
+package io.fourfinanceit.featuros.notification;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 import org.springframework.hateoas.Identifiable;

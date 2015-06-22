@@ -1,4 +1,4 @@
-package io.fourfinanceit.featuros
+package io.fourfinanceit.featuros.core
 
 import com.fasterxml.jackson.annotation.JsonRootName
 import spock.lang.Specification

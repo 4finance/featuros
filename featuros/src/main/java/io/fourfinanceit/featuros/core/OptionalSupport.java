@@ -1,8 +1,8 @@
-package io.fourfinanceit.featuros;
+package io.fourfinanceit.featuros.core;
 
 import java.util.Optional;
 
-interface OptionalSupport<T> {
+public interface OptionalSupport<T> {
 
     @SuppressWarnings("unchecked")
     default Optional<T> chain() {

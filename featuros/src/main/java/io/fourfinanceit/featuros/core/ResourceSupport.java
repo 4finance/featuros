@@ -1,4 +1,4 @@
-package io.fourfinanceit.featuros;
+package io.fourfinanceit.featuros.core;
 
 import org.springframework.hateoas.*;
 
@@ -7,12 +7,12 @@ import java.util.stream.StreamSupport;
 
 import static java.util.stream.Collectors.toList;
 
-class ResourceSupport<T extends Identifiable> {
+public class ResourceSupport<T extends Identifiable> {
 
     private final Class<T> clazz;
     private final EntityLinks entityLinks;
 
-    ResourceSupport(Class<T> clazz, EntityLinks entityLinks) {
+    public ResourceSupport(Class<T> clazz, EntityLinks entityLinks) {
         this.clazz = clazz;
         this.entityLinks = entityLinks;
     }

@@ -1,5 +1,6 @@
-package io.fourfinanceit.featuros;
+package io.fourfinanceit.featuros.notification;
 
+import io.fourfinanceit.featuros.core.ResourceSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.ExposesResourceFor;

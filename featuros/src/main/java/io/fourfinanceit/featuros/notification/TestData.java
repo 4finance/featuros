@@ -1,4 +1,4 @@
-package io.fourfinanceit.featuros;
+package io.fourfinanceit.featuros.notification;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import static java.util.Arrays.asList;
 
 @Component
-public class TestData implements ApplicationListener<ApplicationReadyEvent> {
+class TestData implements ApplicationListener<ApplicationReadyEvent> {
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
