@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.ExposesResourceFor;
-import org.springframework.hateoas.Resource;
-import org.springframework.hateoas.Resources;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +36,7 @@ class NotificationController {
     }
 
     @RequestMapping(method = POST)
-    public ResponseEntity<Void> create(@RequestBody CreateNotification create, HttpServletRequest request) throws URISyntaxException {
+    public ResponseEntity create(@RequestBody CreateNotification create, HttpServletRequest request) throws URISyntaxException {
         Notification notification = new Notification(create.getName(), create.getProduct(), create.getGroup(), create.getVersion(), now(), request.getRemoteAddr());
         notification = repository.save(notification);
         eventPublisher.publishEvent(new NotificationCreatedEvent(notification));
@@ -46,7 +44,7 @@ class NotificationController {
     }
 
     @RequestMapping(method = GET)
-    public ResponseEntity<Resources<Resource<Notification>>> list() {
+    public ResponseEntity list() {
         return ok(resources.collection(repository.findAll()));
     }
 

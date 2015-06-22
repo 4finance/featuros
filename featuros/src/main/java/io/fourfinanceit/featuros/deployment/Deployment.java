@@ -1,5 +1,7 @@
 package io.fourfinanceit.featuros.deployment;
 
+import org.springframework.hateoas.Identifiable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,7 @@ import javax.persistence.Id;
 import java.time.Instant;
 
 @Entity
-class Deployment {
+class Deployment implements Identifiable<Long> {
 
     @Id
     @GeneratedValue
@@ -39,6 +41,7 @@ class Deployment {
         this.date = date;
     }
 
+    @Override
     public Long getId() {
         return id;
     }
