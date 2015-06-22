@@ -2,9 +2,8 @@ package io.fourfinanceit.featuros.notification;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.fourfinanceit.featuros.core.OptionalSupport;
 
-class CreateNotification implements OptionalSupport<CreateNotification> {
+class CreateNotification {
 
     private String name;
     private String product;

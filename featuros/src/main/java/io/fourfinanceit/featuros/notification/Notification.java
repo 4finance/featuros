@@ -11,7 +11,7 @@ import java.time.Instant;
 
 @JsonRootName("notification")
 @Entity
-class Notification implements Identifiable<Long> {
+class Notification implements Identifiable<Long>, INotification {
 
     @Id
     @GeneratedValue
@@ -51,26 +51,32 @@ class Notification implements Identifiable<Long> {
         return id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public String getProduct() {
         return product;
     }
 
+    @Override
     public String getGroup() {
         return group;
     }
 
+    @Override
     public String getVersion() {
         return version;
     }
 
+    @Override
     public Instant getDate() {
         return date;
     }
 
+    @Override
     public String getAddress() {
         return address;
     }
