@@ -6,7 +6,8 @@ buildscript {
         }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.0.M1")
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.0.M1'
+        classpath 'org.springframework:springloaded:1.2.3.RELEASE'
     }
 }
 
@@ -14,6 +15,10 @@ apply plugin: 'idea'
 idea {
     project {
         languageLevel = 1.8
+    }
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main")
     }
 }
 
