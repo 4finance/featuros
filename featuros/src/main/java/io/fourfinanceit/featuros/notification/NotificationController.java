@@ -40,7 +40,7 @@ class NotificationController {
         Notification notification = new Notification(create.getName(), create.getProduct(), create.getGroup(), create.getVersion(), now(), request.getRemoteAddr());
         notification = repository.save(notification);
         eventPublisher.publishEvent(new NotificationCreatedEvent(notification));
-        return created(resources.link(notification).toUri()).build();
+        return created(resources.uri(notification)).build();
     }
 
     @RequestMapping(method = GET)

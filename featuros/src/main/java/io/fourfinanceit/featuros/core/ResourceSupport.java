@@ -2,6 +2,8 @@ package io.fourfinanceit.featuros.core;
 
 import org.springframework.hateoas.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
@@ -28,7 +30,15 @@ public class ResourceSupport<T extends Identifiable> {
         return new Resources<>(resources, entityLinks.linkToCollectionResource(clazz).withSelfRel());
     }
 
-    public LinkBuilder link(T entity) {
-        return entityLinks.linkForSingleResource(entity);
+    public Link link(T entity) {
+        return entityLinks.linkToSingleResource(entity);
+    }
+
+    public URI uri(T entity) {
+        try {
+            return new URI(link(entity).getHref());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
