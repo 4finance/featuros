@@ -5,7 +5,7 @@ var Deployments = React.createClass({
                 dataType: 'json',
                 cache: false,
                 success: function (data) {
-                    var deployments = data._embedded.notifications;
+                    var deployments = data._embedded.deployments;
                     this.setState({deployments: deployments, allDeployments: deployments});
                 }.bind(this),
                 error: function (xhr, status, err) {
@@ -83,6 +83,6 @@ var SearchBox = React.createClass({
 });
 
 React.render(
-    <Deployments url="/api/notifications"/>,
+    <Deployments url="/api/deployments"/>,
     document.getElementById('content')
 );
