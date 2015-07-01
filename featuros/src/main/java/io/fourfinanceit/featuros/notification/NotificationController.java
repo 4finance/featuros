@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.ExposesResourceFor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +43,11 @@ class NotificationController {
         notification = repository.save(notification);
         eventPublisher.publishEvent(new NotificationCreatedEvent(notification));
         return created(resources.uri(notification)).build();
+    }
+
+    @RequestMapping(method = POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public ResponseEntity createFromForm(@RequestBody LinkedMultiValueMap<String, String> form, HttpServletRequest request) throws URISyntaxException {
+        return create(new CreateNotification(form), request);
     }
 
     @RequestMapping(method = GET)

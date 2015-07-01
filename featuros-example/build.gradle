@@ -1,0 +1,9 @@
+project(':featuros-example') {
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+
+    dependencies {
+        compile project(':featuros-plugin')
+        compile 'org.springframework.boot:spring-boot-starter-web:1.3.0.M1'
+    }
+}

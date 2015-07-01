@@ -1,2 +1,9 @@
 project(':featuros-plugin') {
+    dependencies {
+        compile 'org.jodd:jodd-http:3.6.6'
+        compile 'org.slf4j:slf4j-api:1.7.12'
+
+        testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+        testCompile 'org.codehaus.groovy:groovy-all:2.4.3'
+    }
 }

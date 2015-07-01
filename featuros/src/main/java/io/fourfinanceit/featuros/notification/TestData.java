@@ -1,7 +1,9 @@
 package io.fourfinanceit.featuros.notification;
 
+import static java.lang.String.format;
 import static java.util.Arrays.asList;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -9,6 +11,9 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 class TestData implements ApplicationListener<ApplicationReadyEvent> {
+
+    @Value("${server.port}")
+    private int port;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
@@ -24,6 +29,6 @@ class TestData implements ApplicationListener<ApplicationReadyEvent> {
     }
 
     private void postToApi(CreateNotification notification) {
-        new RestTemplate().postForObject("http://localhost:8080/api/notifications", notification, Object.class);
+        new RestTemplate().postForObject(format("http://localhost:%d/api/notifications", port), notification, Object.class);
     }
 }
