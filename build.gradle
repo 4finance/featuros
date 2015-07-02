@@ -22,16 +22,20 @@ idea {
     }
 }
 
-subprojects {
-    apply plugin: 'java'
-    sourceCompatibility = 1.8
-
+allprojects {
     repositories {
         mavenCentral()
         maven {
             url 'http://repo.springsource.org/milestone'
         }
     }
+
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+}
+
+if (project.hasProperty('coverage')) {
+    apply from: 'gradle/coverage.gradle'
 }
 
 task wrapper(type: Wrapper) {
