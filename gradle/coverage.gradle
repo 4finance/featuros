@@ -19,8 +19,8 @@ task jacocoRootReport(type: JacocoReport) {
 }
 
 jacocoRootReport.dependsOn {
-    subprojects*.test
+    subprojects*.check
     subprojects*.jacocoTestReport
 }
 
-build.finalizedBy jacocoRootReport
+check.finalizedBy jacocoRootReport
