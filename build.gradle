@@ -22,7 +22,7 @@ idea {
     }
 }
 
-allprojects {
+subprojects {
     repositories {
         mavenCentral()
         maven {
