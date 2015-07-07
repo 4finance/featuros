@@ -1,2 +1,2 @@
 rootProject.name = 'featuros-root'
-include 'featuros', 'featuros-plugin', 'featuros-example'
+include 'featuros', 'featuros-plugin', 'featuros-example', 'featuros-gradle-plugin'
